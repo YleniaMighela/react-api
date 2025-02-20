@@ -1,12 +1,12 @@
 // import './App.css'
-import DisneyForm from "./components/DisneyForm.jsx";
+import postForm from "./components/postForm.jsx";
 
 function App() {
 
 
   return (
     <>
-      <DisneyForm />
+      <postForm />
     </>
   )
 }
