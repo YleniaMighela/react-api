@@ -1,20 +1,40 @@
-import { useState, } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 
-const PostsForm = () => {
-    const [post, setPost] = useState([]);
+const PostForm = () => {
+    const [posts, setPost] = useState([]);
 
 
     //funzione di gestione chiamate API
     function fetchPosts() {
         axios.get("http://localhost:3000/posts/")
             .then((res) => {
-                console.log(res.data);
-            }
-
-
-            )
+                setPost(res.data);
+            })
     }
+
+    useEffect(fetchPosts, []);
+
+
+    return (
+
+        <>
+
+            {
+                posts.map((post) => (
+                    <div key={post.id}>
+                        <h2>{post.title}</h2>
+                        <img src={post.image} alt={post.title} />
+                        <p>{post.content}</p>
+                    </div >
+                ))
+
+            }
+        </>
+    )
+
 }
 
-export default postForm
+
+
+export default PostForm

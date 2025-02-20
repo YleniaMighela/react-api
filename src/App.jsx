@@ -1,12 +1,12 @@
 // import './App.css'
-import postForm from "./components/postForm.jsx";
+import PostForm from "./components/PostForm.jsx";
 
 function App() {
 
 
   return (
     <>
-      <postForm />
+      <PostForm />
     </>
   )
 }
