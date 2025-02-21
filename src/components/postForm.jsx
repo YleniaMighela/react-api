@@ -36,7 +36,7 @@ const PostForm = () => {
     // funzione che andrà a gestire le informazioni dei campi
     function handleFormData(e) {
         // gestione del value a seconda del tipo di input
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        const value = e.target.name === "tags" ? e.target.value.split(",") : e.target.value;
 
         // inquesto momento currentFormaData prende tutti l'oggetto precedente, ma al momento dell'onChange lo modifica con i nuovi dati inseriti
         setFormData((currentformData) => ({
@@ -114,7 +114,7 @@ const PostForm = () => {
                     <h2>{post.title}</h2>
                     <img src={post.image} alt={post.title} />
                     <p>{post.content}</p>
-                    <span>{post.tags}</span>
+                    <span>{post.tags.join}</span>
                 </div >
             ))}
         </>
