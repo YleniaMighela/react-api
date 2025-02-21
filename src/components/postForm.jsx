@@ -48,12 +48,12 @@ const PostForm = () => {
 
 
 
-    // funzione che avdrà a gestire l'intero form con tutte le info relative
+    // funzione che andrà a gestire l'intero form con tutte le info relative
 
     function handleSubmit(e) {
         e.preventDefault();
         // prendimi dvdDIsney allo suo stato precedente e ritornami un nuovo array con tutto il contenuto che c'era nell'array precedente aggiungendo un nuovo oggetto
-        setFormData((currentPost) => [...currentPost, { id: currentPost[currentPost.length - 1].id + 1, ...formData }]);
+        setPost((post) => [...post, { id: post[post.length - 1].id + 1, ...formData }]);
 
         // reset del form
 
@@ -114,7 +114,7 @@ const PostForm = () => {
                     <h2>{post.title}</h2>
                     <img src={post.image} alt={post.title} />
                     <p>{post.content}</p>
-                    <span>{post.tags.join}</span>
+                    <span>{post.tags.join(",")}</span>
                 </div >
             ))}
         </>

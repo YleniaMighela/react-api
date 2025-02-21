@@ -1,5 +1,5 @@
 // import './App.css'
-import PostForm from "./components/PostForm";
+import PostForm from "./components/postForm";
 
 function App() {
 
