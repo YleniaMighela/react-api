@@ -53,7 +53,19 @@ const PostForm = () => {
     function handleSubmit(e) {
         e.preventDefault();
         // prendimi dvdDIsney allo suo stato precedente e ritornami un nuovo array con tutto il contenuto che c'era nell'array precedente aggiungendo un nuovo oggetto
-        setPost((post) => [...post, { id: post[post.length - 1].id + 1, ...formData }]);
+        // setPost((post) => [...post, { id: post[post.length - 1].id + 1, ...formData }]);
+
+        // invio dati BE
+        axios.post("http://localhost:3000/posts/", formData)
+            .then((res) =>
+
+                // setPostList(res.data)
+                setPost((currentPost) => [...currentPost, res.data])
+
+            )
+            .catch(err => {
+                console.log(err)
+            })
 
         // reset del form
 
@@ -114,7 +126,7 @@ const PostForm = () => {
                     <h2>{post.title}</h2>
                     <img src={post.image} alt={post.title} />
                     <p>{post.content}</p>
-                    <span>{post.tags.join(",")}</span>
+                    <span>{post.tags}</span>
                 </div >
             ))}
         </>
